@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Job</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Job</h1>
+        <form action="{{ url_for('edit_job', job_id=job.id) }}" method="post" class="application-form">
+            <input type="text" name="company" placeholder="Company Name" value="{{ job.company }}" required>
+            <input type="text" name="title" placeholder="Job Title" value="{{ job.title }}" required>
+            <input type="url" name="link" placeholder="Job Link" value="{{ job.link or '' }}">
+            <input type="date" name="date_applied" placeholder="yyyy-mm-dd" value="{{ job.date_applied }}" required>
+            
+            <label for="status">Status</label>
+            <select name="status" id="status" required>
+                {% for status in allowed_statuses %}
+                    <option value="{{ status }}"
+                        {% if status == job.status %}
+                            selected
+                        {% endif %}
+                    >
+                        {{ status }}
+                    </option>
+                {% endfor %}
+            </select>
+
+            <button class="add-btn" type="submit">Save Changes</button>
+            <button class="cancel-btn" type="button" onclick="window.location.href='{{ index }}'">Cancel</button>
+        </form>
+    </div>
+</body> 
+</html>
