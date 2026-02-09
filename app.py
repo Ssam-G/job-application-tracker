@@ -87,9 +87,6 @@ def edit_job(job_id: int):
         if status not in allowed_statuses:
             conn.close()
             return redirect(url_for("index"))
-        if status == "":
-            conn.close()
-            return redirect(url_for("index"))
 
         conn.execute(
             "UPDATE jobs SET company = ?, title = ?, date_applied = ?, link = ?, status = ? WHERE id = ?",
