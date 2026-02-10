@@ -32,10 +32,10 @@ This project was built to practise full-stack fundamentals: routing, form handli
    source .venv/bin/activate
 3. Install Dependencies:
    ```bash
-   pip install flask
+   pip install -r requirements.txt
 4. Run the app:
    ```bash
-   python3 desktop.py
+   python3 app.py
 5. Open your browser and go to:
    ```cpp
    http://127.0.0.1.5000
@@ -50,7 +50,7 @@ The SQLite database (jobs.db) will be created automatically on first run.
 - Managing optional fields cleanly (NULL vs empty values)
 - Enforcing data integrity using backend-defined allowed values
 - Structuring templates with Jinja and separating concerns (index vs edit)
-- Basic UI styling with CSS for usability and clarity
+- Basic UI styling with CSS for usability
 - Incremental development: building features step-by-step and fixing issues as they arise
 
 ---
